@@ -1,7 +1,48 @@
 # survey
 
-A [re-frame](https://github.com/day8/re-frame) application designed to ... well, that part is up to
-you.
+A [re-frame](https://github.com/day8/re-frame) application.
+
+
+Your assignment is to develop a ClojureScript application for the following scenario:
+* A customer designs an online survey on Dashboard.
+* The survey has the following four elements:
+1. How was your experience with us today? (Presentation style: Inline clickable options)
+Options:
+* Very good
+* Good 
+* Neutral
+* Bad
+* Very Bad
+2. What is the reason for your dissatisfaction? (Presentation style: Dropdown)
+Options:
+* Agent was rude
+* Waiting times are long
+* No solution for my problem
+* Other
+3. Please explain the reason for your dissatisfaction (Presentation style: Textarea)
+4. A submit button
+
+* The customer sends the link to its various customers who had called the call center today.
+* Their customers opens the link sent by the company and is presented with the survey.
+* When the customers are presented with the survey, initially only the first question is visible.
+* Customers who choose on Very Good, Good, and Neutral options can submit their
+feedback.
+* Customers who choose Bad or Very Bad options are presented with the second question:
+* Customers who choose options other than the Other option can submit their feedback.
+* Customers who choose the Other option are presented with the 3rd element as a textarea
+to enter the reasons for their dissatisfaction.
+* After entering the reason, customers can submit their feedback.
+
+NOTES
+1. We expect this assignment to be built with ClojureScript & Re-frame library. If you are more
+comfortable with other ClojureScript libraries, you can also use them.
+2. You need to interact with an imaginary backend that returns the survey you requested. You
+will use this imaginary backend also for submitting the feedback.
+3. You are free to use existing ClojureScript data structures or roll out your own.
+4. Automated testing of this application is essential to the task.
+5. Your assignment deadline is 26.10.2020.
+6. Bonus: A pretty good look and feel.
+7. Bonus: Packaging and deployment of this application is a good addition.
 
 ## Getting Started
 
