@@ -1,7 +1,17 @@
 # survey
 
-A [re-frame](https://github.com/day8/re-frame) application.
+## Solution:
 
+[Imaginary backend #1](https://gist.githubusercontent.com/dosbol/dd7b279017f58539fe215b464c6bc731/raw/69df17a39a8a16894cf7f99ad49af9d5b3781415/survey-questions.edn)
+
+[Imaginary backend #2](https://gist.githubusercontent.com/dosbol/1eb51158e5d11cfd6564b4b74dcd7821/raw/e2f721d8950e006ea33c91b174016e9d2cee968a/survey-questions1.edn)
+
+[Demo with imaginary backend #1](https://dosbol.github.io/survey/?customer=Adidas&survey=https://gist.githubusercontent.com/dosbol/dd7b279017f58539fe215b464c6bc731/raw/69df17a39a8a16894cf7f99ad49af9d5b3781415/survey-questions.edn)
+
+[Demo with imaginary backend #2](https://dosbol.github.io/survey/?customer=Samsung&survey=https://gist.githubusercontent.com/dosbol/1eb51158e5d11cfd6564b4b74dcd7821/raw/e2f721d8950e006ea33c91b174016e9d2cee968a/survey-questions1.edn)
+
+
+## Assignment:
 
 Your assignment is to develop a ClojureScript application for the following scenario:
 * A customer designs an online survey on Dashboard.
