@@ -65,7 +65,7 @@
                             ["ci"]]
             "ci"           ["with-profile" "prod" "do"
                             ["shadow" "compile" "karma-test"]
-                            ["shell" "karma" "start" "--single-run" "--reporters" "junit,dots"]]}
+                            ["shell" "node_modules/.bin/karma" "start" "--single-run" "--reporters" "junit,dots"]]}
 
   :profiles
   {:dev
