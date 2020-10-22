@@ -9,17 +9,21 @@
 
 (defmethod question :inline-clickable
   [q]
-  (when @(re-frame/subscribe [::subs/visible? (:id q)])
-   [:div {:style {:padding 10}}
-    (:text q)
-    (doall (for [o (:options q)]
-             ^{:key o}
-             [:a {:href "#"
-                  :style {:padding 10
-                          :border "solid 1px"
-                          :border-radius 10
-                          :margin 1}
-                  :on-click #(re-frame/dispatch [::events/answer (:id q) o])} o]))]))
+  (let [visible? @(re-frame/subscribe [::subs/visible? (:id q)])
+        answer @(re-frame/subscribe [::subs/answer (:id q)])]
+    (when visible?
+      [:div {:style {:padding 10}}
+       (:text q)
+       (doall (for [o (:options q)]
+                ^{:key o}
+                [:a {:href "#"
+                     :style {:padding 10
+                             :border "solid 1px"
+                             :border-radius 10
+                             :margin 1
+                             :text-decoration :none
+                             :background-color (when (= o answer) :darkgrey)}
+                     :on-click #(re-frame/dispatch [::events/answer (:id q) o])} o]))])))
 
 (defmethod question :dropdown
   [q]
