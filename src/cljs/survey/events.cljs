@@ -6,14 +6,14 @@
    [survey.coeffects :as cofx]))
 
 (re-frame/reg-event-db
- ::get-questions-success
+ ::set-questions
  (fn [db [_ result]]
    (assoc db :questions result)))
 
 (re-frame/reg-event-db
- ::get-questions-failure
+ ::set-failure
  (fn [db [_ result]]
-   (assoc db :failure result)))
+   (assoc db :error result)))
 
 (re-frame/reg-event-fx
  ::initialize
@@ -27,8 +27,8 @@
                    :uri             survey
                    :response-format {:read (fn [^goog.net.Xhrio res] (-> res .getResponse clojure.edn/read-string))
                                      :content-type    ["text/plain"]}
-                   :on-success      [::get-questions-success]
-                   :on-failure      [::get-questions-failure]}})))
+                   :on-success      [::set-questions]
+                   :on-failure      [::set-failure]}})))
 
 (re-frame/reg-event-db
  ::answer
@@ -38,9 +38,9 @@
 (re-frame/reg-event-db
  ::submit
  (fn [db _]
-   (assoc db :submited? true)))
+   (assoc db :submitted? true)))
 
 (re-frame/reg-event-db
  ::unsubmit
  (fn [db _]
-   (assoc db :submited? false)))
+   (assoc db :submitted? false)))

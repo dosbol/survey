@@ -7,6 +7,10 @@
  (fn [db] db))
 
 (re-frame/reg-sub
+ ::error
+ (fn [db] (:error db)))
+
+(re-frame/reg-sub
  ::customer
  (fn [db]
    (:customer db)))
@@ -17,9 +21,9 @@
    (:survey db)))
 
 (re-frame/reg-sub
- ::submited?
+ ::submitted?
  (fn [db]
-   (:submited? db)))
+   (:submitted? db)))
 
 (re-frame/reg-sub
  ::questions
@@ -61,6 +65,6 @@
    (let [visible-answers (->> (keys answers)
                               (filter (partial visible? questions answers))
                               (select-keys answers))]
-     (merge visible-answers
-            {:customer customer
-             :survey survey}))))
+     {:customer customer
+      :survey survey
+      :answers visible-answers})))

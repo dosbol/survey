@@ -72,14 +72,17 @@
 
 (defn main-panel []
   (let [customer @(re-frame/subscribe [::subs/customer])
-        submited? @(re-frame/subscribe [::subs/submited?])]
+        submitted? @(re-frame/subscribe [::subs/submitted?])
+        error @(re-frame/subscribe [::subs/error])]
     [:div {:style {:display :flex
                    :align-items :center
                    :flex-direction :column
                    :justify-content :center}}
-     (if submited?
+     (if submitted?
        [thanks-panel customer]
-       [questions-panel customer])]))
+       [questions-panel customer])
+     (when error
+       [:div "Something went wrong: " error])]))
 
 (comment
 
