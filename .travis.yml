@@ -6,4 +6,4 @@ node_js:
   - "8"
 script:
   - npm install
-  - lein do clean, karma
+  - lein do clean, ci

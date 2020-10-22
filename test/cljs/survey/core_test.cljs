@@ -58,7 +58,7 @@
          first-visible?  (rf/subscribe [::subs/visible? :experience-level])
          second-visible? (rf/subscribe [::subs/visible? :dissatisfaction-reason])
          third-visible?  (rf/subscribe [::subs/visible? :dissatisfaction-other-reason])
-         sent-data     (rf/subscribe [::subs/sent-data])]
+         sent-data       (rf/subscribe [::subs/sent-data])]
 
      (is (= qs @questions))
      (is (nil? @answers))
