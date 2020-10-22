@@ -7,7 +7,8 @@
                  [thheller/shadow-cljs "2.11.4"]
                  [reagent "0.10.0"]
                  [re-frame "1.1.1"]
-                 [day8.re-frame/http-fx "0.2.1"]]
+                 [day8.re-frame/http-fx "0.2.1"]
+                 [day8.re-frame/test "0.1.5"]]
 
   :plugins [[lein-shadow "0.3.1"]
             
@@ -16,6 +17,8 @@
   :min-lein-version "2.9.0"
 
   :source-paths ["src/clj" "src/cljs"]
+
+  :test-paths   ["test/cljs"]
 
   :clean-targets ^{:protect false} ["resources/public/js/compiled" "target"]
 
@@ -29,9 +32,11 @@
                                                :preloads [devtools.preload]}}
 
                                :devtools {:http-root "resources/public"
-                                          :http-port 8280
-                                          }}}}
-  
+                                          :http-port 8280}}
+                         :karma-test {:target    :karma
+                                      :ns-regexp "-test$"
+                                      :output-to "target/karma-test.js"}}}
+
   :shell {:commands {"karma" {:windows         ["cmd" "/c" "karma"]
                               :default-command "karma"}
                      "open"  {:windows         ["cmd" "/c" "start"]
