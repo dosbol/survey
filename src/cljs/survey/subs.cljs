@@ -1,6 +1,7 @@
 (ns survey.subs
   (:require
-   [re-frame.core :as re-frame]))
+   [re-frame.core :as re-frame]
+   [clojure.string :as str]))
 
 (re-frame/reg-sub
  ::db
@@ -66,5 +67,5 @@
                               (filter (partial visible? questions answers))
                               (select-keys answers))]
      {:customer customer
-      :survey survey
+      :survey (-> survey (str/split #"/") last)
       :answers visible-answers})))

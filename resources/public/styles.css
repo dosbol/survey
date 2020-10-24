@@ -1,0 +1,39 @@
+.flex {
+    display: flex;
+}
+
+.column-center {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.item-center {
+    align-items: center;
+}
+
+.item-start {
+    align-items: flex-start;
+}
+
+.self-end {
+    align-self: flex-end;
+}
+
+.padding-10 {
+    padding: 10px;
+}
+
+.margin-10 {
+    margin: 10px;
+}
+
+.inline-clickable {
+    border: solid 1px;
+    border-radius: 10px;
+    margin: 1px;
+    text-decoration: none;  
+}
+
+.selected {
+    background-color: darkgrey;
+}
