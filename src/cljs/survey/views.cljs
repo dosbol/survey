@@ -48,16 +48,15 @@
              :on-click #(re-frame/dispatch [::events/unsubmit])}]]])
 
 (defn questions-panel [customer]
-  (let [questions @(re-frame/subscribe [::subs/questions])]
+  (let [questions @(re-frame/subscribe [::subs/visible-questions])]
     [:<>
      [:h1 "Hello " customer]
      [:div.flex.column-center.item-start
       (doall
        (for [qwestion questions
              :let [id (:id qwestion)]]
-         (when @(re-frame/subscribe [::subs/visible? id])
-           ^{:key id}
-           [question qwestion])))
+         ^{:key id}
+         [question qwestion]))
       [:input.self-end.padding-10.margin-10
        {:type "button"
         :value "Submit"

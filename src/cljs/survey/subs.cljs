@@ -57,6 +57,13 @@
    (visible? questions answers id)))
 
 (re-frame/reg-sub
+ ::visible-questions
+ :<- [::questions]
+ :<- [::answers]
+ (fn [[questions answers] _]
+   (filter #(visible? questions answers (:id %)) questions)))
+
+(re-frame/reg-sub
  ::sent-data
  :<- [::questions]
  :<- [::answers]
